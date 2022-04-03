@@ -1,16 +1,23 @@
 import { fillPokemonCard, getPokemonByNameOrId } from './const.js';
 
 const btn = document.querySelector('#add');
+let arr=[]
+
 
 btn.addEventListener('click', async (event) => {
     const randomId = Math.floor(Math.random() * 100);
     try {
         const pokemon = await getPokemonByNameOrId(randomId);
+       
         fillPokemonCard(pokemon);
+         arr.push(pokemon);
+         localStorage.setItem('pokemons', JSON.stringify(arr));
     } catch (error) {
         alert(error.message);
     }
+  
 
+    
     // fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
     //     .then((response) => response.json())
     //     .then((result) => {
