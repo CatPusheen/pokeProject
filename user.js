@@ -15,7 +15,7 @@ login.addEventListener('submit', (event) => {
     event.preventDefault();
     const { userName } = event.target;
     localStorage.setItem('user', userName.value);
-    welcomeMsg.innerText = ` WELCOME ${userName.value}`;
+    welcomeMsg.innerText = ` Welcome ${userName.value}`;
     modal.style.display = 'none';
     // POST запрос на бек
 })
